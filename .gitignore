@@ -128,6 +128,9 @@ $tf/
 
 # Guidance Automation Toolkit
 *.gpState
+MfgLabApp/*.terraform
+MfgLabApp/.terraform.lock*
+*tfstate
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/

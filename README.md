@@ -1,12 +1,13 @@
 # terraform-modules
 How to build a module step by step
 
-- https://spacelift.io/blog/what-are-terraform-modules-and-how-do-they-work![image](https://github.com/user-attachments/assets/60b81ddf-de28-44ed-907f-e0e6fb8c5430)
+- https://spacelift.io/blog/what-are-terraform-modules-and-how-do-they-work
 
 # Building a 3tier Infrastructure with Modules
-- vpc ddeployment was successful - still working on completing the next module
+- this vpc deployment was successful - still working on completing the next modules
 
 ## 1. CREATE VPC:
+**What will be done**
 - create vpc
 - create internet gateway and reference vpc id
 - use data source to get all avalablility zones in region
@@ -19,6 +20,8 @@ How to build a module step by step
 - create private app subnet az2
 - create private data subnet az1
 - create private data subnet az2
+
+**Steps to create them:**
 
 ## NAT GATEWAY:
 - allocate elastic ip. this eip will be used for the nat-gateway in the public subnet az1 
@@ -55,3 +58,30 @@ SECURITY GROUPS:
 - App Root Module - backend, output, main, variables, tfvars.
 - In main, set profile.
 - In main, have all the varables set under the source line pointing to var.varibales
+
+## Joter:
+# Working with Workspace:
+- create workspace
+```
+terraform workspace new prod
+terraform workspace select prod
+terraform workspace list
+```
+
+## workspace tag
+```
+  tags      = {
+    Name    = "${}${terraform.workspace}-vpc"
+  }
+```
+
+## Deployment CMDs:
+```
+terraform init
+terraform validate
+terraform fmt
+terraform plan
+terraform apply
+terraform destroy
+
+```
